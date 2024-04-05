@@ -2,36 +2,46 @@
 
 namespace ConsoleApp1
 {
-    class Program
+    class Number
     {
-        static double Mod(double a)
+        public double A { get; set; }
+
+        public double B { get; set; }
+    }
+    class Func:Number
+    {   
+        public double Sum(double a, double b)
         {
-            if(a<0)
+            return a + b;
+        }
+        public double Mod(double a)
+        {
+            if (a < 0)
             {
                 return a * -1;
             }
             return a;
         }
-        static double Fac(double a)
+        public double Fac(double a)
         {
-           if(a!=0)
+            if (a != 0)
             {
                 return a * Fac(a - 1);
             }
             return 1;
         }
-        static double trig(string Key,double a)
+        public double trig(string Key, double a)
         {
-            while (a>=360)
+            while (a >= 360)
             {
                 a -= 360;
             }
-            switch(Key)
+            switch (Key)
             {
-                
+
                 case "sin":
                 case "Sin":
-                    switch(a)
+                    switch (a)
                     {
                         case 0:
                         case 180:
@@ -45,7 +55,7 @@ namespace ConsoleApp1
                         case 60:
                         case 120:
                             return Math.Round(Math.Sqrt(3) / 2, 10);
-                        case 90:                       
+                        case 90:
                             return 1;
                         case 210:
                         case 330:
@@ -78,7 +88,7 @@ namespace ConsoleApp1
                             return 0.5;
                         case 120:
                         case 240:
-                            return - 0.5;
+                            return -0.5;
                         case 135:
                         case 235:
                             return -Math.Round(Math.Sqrt(2) / 2, 10);
@@ -121,6 +131,10 @@ namespace ConsoleApp1
             return 0;
         }
 
+    }
+
+    class Program:Func
+    {
         static void Main(string[] args)
         {
             string key;
@@ -139,7 +153,7 @@ namespace ConsoleApp1
                         a = Convert.ToInt32(Console.ReadLine());
                         Console.Write("Второе слагаемое: ");
                         b = Convert.ToInt32(Console.ReadLine());
-                        Console.WriteLine($"Результат cложения: {a+b}") ;
+                        Console.WriteLine($"Результат cложения: {}") ;
                         break;
                     case "*":
                         Console.Write("Первый множитель: ");
